@@ -6,7 +6,6 @@ import { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Suspense } from "react"
 
 import { Input } from "@/components/ui/input";
 import { LoginSchema } from "@/schemas";
@@ -106,9 +105,7 @@ export const LoginForm = () => {
                             )}
                         />
                     </div>
-                    <Suspense>
-                        <FormError message={error || urlError} />
-                    </Suspense>
+                    <FormError message={error || urlError} />
                     <FormSuccess message={success} />
                     <Button
                         disabled={isPending}
