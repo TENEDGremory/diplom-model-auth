@@ -6,7 +6,11 @@ export const sendVerificationEmail = async (
   email: string,
   token: string
 ) =>{
+<<<<<<< HEAD
   const confirmLink = `https://diplom-model-auth.vercel.app/auth/new-verification?token=${token}`;
+=======
+  const confirmLink = `http://localhost:3000/auth/new-verification?token=${token}`;
+>>>>>>> 762808bcecf07385ca7cb6077a45dda93aa018ad
 
   await resend.emails.send({
     from: "onboarding@resend.dev",
