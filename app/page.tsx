@@ -11,11 +11,8 @@ const font = Poppins({
 })
 
 export default function Home() {
-
-
-  console.log("WHERE I AM?");
   return (
-    <main className="flex flex-col items-center justify-center h-full  bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-cyan-800 to-teal-950">
+    <main className="flex flex-col items-center justify-center h-full bg-zinc-800">
       <Image
         src="/logo.png"
         alt="werfest"
@@ -25,24 +22,11 @@ export default function Home() {
       />
       <div className="space-y-6 text-center">
         <h1 className={cn(
-          "text-6xl font-semibold text-white drop-shadow-md text-center",
+          "text-6xl font-semibold drop-shadow-xl text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-300",
           font.className
         )}>
-          🍁 WERFEST
+          WERFEST
         </h1>
-
-        <div className="grid grid-cols-2">
-          <SigninButton>
-            <Button variant="secondary" size="lg">
-              SignIn
-            </Button>
-          </SigninButton>
-          <LoginButton>
-            <Button variant="secondary" size="lg">
-              LogIn
-            </Button>
-          </LoginButton>
-        </div>
       </div>
     </main>
   );

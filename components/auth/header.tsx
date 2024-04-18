@@ -17,10 +17,10 @@ export const Header = ({
   return(
     <div className="w-full flex flex-col gap-y-4 items-center justify-center">
       <h1 className={cn(
-        "text-3xl font-semibold",
+        "text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-300",
         font.className
       )}>
-        🍁 WERFEST
+        WERFEST
       </h1>
       <p className="text-muted-foreground text-sm">
         {label}
