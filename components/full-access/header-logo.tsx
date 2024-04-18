@@ -1,10 +1,13 @@
 "use client"
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
 const HeaderLogo = () =>{
   return(
-    <div>
-      Header logo
-    </div>
+    <Avatar className="h-16 w-16">
+      <AvatarImage src="/logo.png"/>
+      <AvatarFallback>W</AvatarFallback>
+    </Avatar>
   )
 }
 

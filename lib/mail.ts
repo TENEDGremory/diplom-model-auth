@@ -20,11 +20,11 @@ export const sendVerificationEmail = async (
   email: string,
   token: string
 ) =>{
-  const confirmLink = `http://localhost:3000/auth/new-verification?token=${token}`;
-  // const confirmLink = `https://diplom-model-auth.vercel.app/auth/new-verification?token=${token}`;
+  //const confirmLink = `http://localhost:3000/auth/new-verification?token=${token}`;
+  const confirmLink = `https://diplom-model-auth.vercel.app/auth/new-verification?token=${token}`;
 
   await resend.emails.send({
-    from: 'Acme <onboarding@resend.dev>',
+    from: 'jenyabasenko@gmail.com',
     to: email,
     subject: "Confirm your email",
     html: `<p>Click <a href="${confirmLink}" >here</a> to confirm email.</p>`
