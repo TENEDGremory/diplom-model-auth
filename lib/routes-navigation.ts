@@ -4,7 +4,5 @@ interface RoutesNavigationProps {
 }
 
 export const routesNavigation : RoutesNavigationProps[] = [
-  {label: "login", href: '/auth/login'},
-  {label:"register", href: '/auth/register'},
-  {label:"settings", href:'/api/settings'}
+  {label:"settings", href:'/settings'}
 ]

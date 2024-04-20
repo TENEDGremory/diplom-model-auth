@@ -1,7 +1,7 @@
 import { auth } from "@/auth"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { LoginButton, SigninButton } from "../auth/login-button";
-import { Button } from "../ui/button";
+import { LoginButton, SigninButton } from "@/components/auth/login-button";
+import { Button } from "@/components/ui/button";
 
 const AvatarUser = async () => {
   const session = await auth();
@@ -11,12 +11,12 @@ const AvatarUser = async () => {
         !session &&
         <div className="grid grid-cols-2">
           <SigninButton>
-            <Button variant="link" size="lg">
+            <Button variant="link" size="lg" className="text-white">
               SignIn
             </Button>
           </SigninButton>
           <LoginButton>
-            <Button variant="link" size="lg">
+            <Button variant="link" size="lg" className="text-white">
               LogIn
             </Button>
           </LoginButton>
