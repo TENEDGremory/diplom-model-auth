@@ -74,7 +74,7 @@ export const CloseButton = ({
   children,
   mode = "redirect",
   asChild
-}: SigninButtonProps) =>{
+}: CloseButtonProps) =>{
   const router = useRouter();
   const onClick = () =>{
     router.push('/');
