@@ -21,7 +21,7 @@ export const sendPasswordResetEmail = async(
   token: string
 ) =>{
   // const resetLink = `${domain}/auth/new-password?token=${token}`;
-  const confirmLink = `https://werfest.vercel.app/auth/new-password?token=${token}`;
+  const resetLink = `https://werfest.vercel.app/auth/new-password?token=${token}`;
 
   await resend.emails.send({
     from: 'Acme <onboarding@resend.dev>',
