@@ -27,6 +27,13 @@ export default function Home() {
         )}>
           WERFEST
         </h1>
+        <div>
+          <LoginButton mode="modal" asChild>
+            <Button variant="secondary" size="lg">
+              Sign in
+            </Button>
+          </LoginButton>
+        </div>
       </div>
     </main>
   );
