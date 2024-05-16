@@ -37,7 +37,9 @@ const VerificationTemplateEmail = (confirmLink: string) => {
               </Text>
             </Section>
             <Section className="">
-
+              <Link href={confirmLink}>
+                Confirm
+              </Link>
             </Section>
           </Container>
         </Body>
