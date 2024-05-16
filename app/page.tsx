@@ -11,25 +11,33 @@ const font = Poppins({
 })
 
 export default function Home() {
+
   return (
-    <main className="flex flex-col items-center justify-center h-full bg-zinc-800">
+    <main className="flex flex-col items-center justify-center h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-600 to-indigo-900">
       <Image
         src="/logo.png"
         alt="werfest"
         width={300}
         height={300}
-        className="flex items-center justify-center"
-      />
+        className="flex items-center justify-center drop-shadow-lg"
+        />
       <div className="space-y-6 text-center">
         <h1 className={cn(
-          "text-6xl font-semibold drop-shadow-xl text-center text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-300",
+          "text-6xl font-semibold drop-shadow-xl text-center text-transparent bg-clip-text bg-gradient-to-b from-orange-600 to-yellow-400",
           font.className
         )}>
           WERFEST
         </h1>
         <div>
           <LoginButton mode="modal" asChild>
-            <Button variant="secondary" size="lg">
+            <Button
+            className="
+            transition-colors duration-300  font-semibold 
+            "
+
+            variant="secondary"
+            size="lg"
+            >
               Sign in
             </Button>
           </LoginButton>

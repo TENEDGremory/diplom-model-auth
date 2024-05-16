@@ -8,6 +8,7 @@ import {
   DialogTrigger
 } from "@/components/ui/dialog";
 import { LoginForm } from "@/components/auth/login-form";
+import { RegisterForm } from "@/components/auth/register-form";
 
 interface LoginButtonProps {
   children: React.ReactNode,
@@ -69,9 +70,14 @@ export const SigninButton = ({
 
   if(mode === 'modal'){
     return(
-      <span>
-        TODO: Implement modal
-      </span>
+      <Dialog>
+        <DialogTrigger asChild={asChild}>
+          {children}
+        </DialogTrigger>
+        <DialogContent className="p-0 w-auto bg-trasparent border-none">
+          <RegisterForm />
+        </DialogContent>
+      </Dialog>
     )
   }
 

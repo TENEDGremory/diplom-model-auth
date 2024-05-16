@@ -5,7 +5,7 @@ import NavigationPage from "@/components/full-access/navigation-page"
 
 export const PublicHeader = () =>{
   return(
-    <div className="flex items-center justify-around bg-zinc-800">
+    <div className="absolute top-0 left-0 right-0 backdrop-blur border-b flex items-center justify-around bg-transparent">
       <HeaderLogo />
       <NavigationPage />
       <AvatarUser />

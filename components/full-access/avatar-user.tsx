@@ -11,15 +11,29 @@ const AvatarUser = () => {
     <span>
       {
         !user &&
-        <div className="grid grid-cols-2">
-          <SigninButton>
-            <Button variant="link" size="lg" className="text-white">
-              SignIn
+        <div className="grid grid-cols-2 gap-4">
+          <SigninButton mode="modal" asChild>
+            <Button
+            className="
+              transition-colors duration-300 font-semibold text-white
+            "
+
+            variant="link"
+            size="lg"
+            >
+              Sign in
             </Button>
           </SigninButton>
-          <LoginButton>
-            <Button variant="link" size="lg" className="text-white">
-              LogIn
+          <LoginButton mode="modal" asChild>
+            <Button
+            className="
+              transition-colors duration-300 font-semibold text-white
+            "
+
+            variant="link"
+            size="lg"
+            >
+              Log in
             </Button>
           </LoginButton>
         </div>

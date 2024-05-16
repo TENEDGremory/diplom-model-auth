@@ -46,7 +46,7 @@ export const login = async (
 
     await sendVerificationEmail(
       verificationToken.email,
-      verificationToken.token
+      verificationToken.token,
     )
 
     return { success: 'Confirmation email sent!' }

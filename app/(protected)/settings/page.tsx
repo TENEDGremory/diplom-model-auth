@@ -33,10 +33,10 @@ import {
   FormMessage
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input";
+import { UserRole } from "@prisma/client";
 import { FormError } from "@/components/form-error";
 import { FormSuccess } from "@/components/form-success";
 import { useCurrentUser } from "@/hooks/use-current-user";
-import { UserRole } from "@prisma/client";
 
 const SettingsPage = () => {
   const user = useCurrentUser();

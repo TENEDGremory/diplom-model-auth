@@ -1,4 +1,7 @@
 import { Resend } from "resend"
+import VerificationEmail from "@/lib/template/verification.template";
+import { render } from "@react-email/components";
+
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -37,11 +40,13 @@ export const sendVerificationEmail = async (
 ) =>{
   // const confirmLink = `${domain}/auth/new-verification?token=${token}`;
   const confirmLink = `https://werfest.vercel.app/auth/new-verification?token=${token}`;
+  const verificationEmail = render(VerificationEmail(confirmLink));
 
   await resend.emails.send({
     from: 'Acme <onboarding@resend.dev>',
     to: "jenyabasenko@gmail.com",
     subject: "Confirm your email",
-    html: `<p>Click <a href="${confirmLink}" >here</a> to confirm email.</p>`
+    html: verificationEmail
+    // html: `<p>Click <a href="${confirmLink}" >here</a> to confirm email.</p>`
   })
 }

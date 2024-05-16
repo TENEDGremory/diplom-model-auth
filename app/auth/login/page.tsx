@@ -1,11 +1,11 @@
 import { LoginForm } from "@/components/auth/login-form";
-import { Suspense } from "react"
+import {  } from "react"
 
 const LoginPage = () => {
     return (
-        <Suspense>
+        <>
             <LoginForm />
-        </Suspense>
+        </>
     )
 }
 
