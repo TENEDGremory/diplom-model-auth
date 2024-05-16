@@ -5,7 +5,7 @@ const ShopPage = async () =>{
   return(
     <div className="relative top-16">
       {card.map((card) =>(
-        <img src={card.imageId} width={50} height={50}/>
+        <img key={card.id} src={card.imageId} width={50} height={50}/>
       ))}
     </div>
   )
