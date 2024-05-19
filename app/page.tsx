@@ -13,7 +13,7 @@ const font = Poppins({
 export default function Home() {
 
   return (
-    <main className="flex flex-col items-center justify-center h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-600 to-indigo-900">
+    <main className="flex flex-col items-center justify-center h-full">
       <Image
         src="/logo.png"
         alt="werfest"

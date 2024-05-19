@@ -1,4 +1,3 @@
-import { getUserByEmail } from "@/data/user";
 import {
   Body,
   Button,
@@ -11,12 +10,14 @@ import {
   Preview,
   Section
 } from "@react-email/components"
+import { getUserByEmail } from "@/data/user";
 
-const VerificationTemplateEmail = async ({confirmLink, email}: {confirmLink: string, email: string}) => {
+const TwoFactorTemplateEmail = async ({token, email}: {token: string, email: string}) => {
 
   const user = await getUserByEmail(email);
+  console.log(user);
   return (
-    <Html>
+    <Html> 
       <Head />
       <Preview>WERFEST</Preview>
       <Tailwind>
@@ -38,11 +39,11 @@ const VerificationTemplateEmail = async ({confirmLink, email}: {confirmLink: str
             </Section>
             <Section className="px-[20px] text-center text-balance">
               <Text className="text-black text-[16px] leading-[24px]">
-                Hello {user?.name}, you are trying to log into the website <strong> werfest.vercel.app</strong>, for this you need to follow the link below to confirm your identity.
+              Hello {user?.name}, you are trying to log into your account on the website <strong> werfest.vercel.app</strong>, to do this you need to enter the code below in the field that appears on the site to log into your account.
               </Text>
-              <Button target="_blank" href={confirmLink} className="py-3 px-6 text-[16px] mb-[10px] border-solid border-2 border-black rounded-[8px]">
-                Confirm email
-              </Button>
+              <Text className="text-center mt-2 text-[20px]">
+                {token}
+              </Text>
             </Section>
           </Container>
         </Body>
@@ -53,4 +54,4 @@ const VerificationTemplateEmail = async ({confirmLink, email}: {confirmLink: str
 
 
 
-export default VerificationTemplateEmail;
+export default TwoFactorTemplateEmail;

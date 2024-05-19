@@ -1,11 +1,9 @@
-const { db } = require("../lib/db")
+const { db } = require('../lib/db')
 
 const getRandomPrice = () => {
   const PRICES = [9.99, 19.99, 29.99, 39.99, 49.99]
   return PRICES[Math.floor(Math.random() * PRICES.length)]
 }
-
-
 
 const COLORS = ['white', 'beige', 'blue', 'green', 'purple']
 const SIZES = ['S', 'M', 'L']
@@ -26,16 +24,15 @@ const seed = async () => {
             color.slice(0, 1).toUpperCase() + color.slice(1)
           } shirt ${i}`,
           size,
-          price: getRandomPrice(),
+          price: getRandomPrice()
         })
       }
     }
   }
 
-  const cardProduct = await db.cardProductStore.createMany({
-    data: [products]
+  await db.cardProductStore.createMany({
+    data: products
   })
 }
 
-
-seed();
+seed()

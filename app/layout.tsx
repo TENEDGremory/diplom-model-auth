@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { PublicHeader } from "@/components/full-access/header";
 import { SessionProvider } from "next-auth/react";
 import "./globals.css";
+import { cn } from "@/lib/utils";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,11 @@ export default async function RootLayout({
   return (
     <SessionProvider session={session}>
       <html lang="en">
-        <body className={inter.className}>
+        <body className={cn(
+          inter.className,
+        "bg-no-repeat bg-cover bg-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-600 to-indigo-900")}
+        >
+
           <PublicHeader />
           <Toaster />
           {children}

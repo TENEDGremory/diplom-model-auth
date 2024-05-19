@@ -1,7 +1,8 @@
-import { Resend } from "resend"
+import TwoFactor from "@/lib/template/twoFactor.template"
+import PasswordReset from "@/lib/template/passwordReset.template"
 import VerificationEmail from "@/lib/template/verification.template";
+import { Resend } from "resend"
 import { render } from "@react-email/components";
-
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -11,11 +12,14 @@ export const sendTwoFactorTokenEmail = async (
   email: string,
   token: string,
 ) =>{
+
+  const twoFactor = render(await TwoFactor({ token, email }));
+
   await resend.emails.send({
     from: "Acme <onboarding@resend.dev>",
     to: "jenyabasenko@gmail.com",
     subject: "2FA Code",
-    html: `<p>Your 2FA code: ${token}</p>`
+    html: twoFactor
   })
 }
 
@@ -25,12 +29,13 @@ export const sendPasswordResetEmail = async(
 ) =>{
   // const resetLink = `${domain}/auth/new-password?token=${token}`;
   const resetLink = `https://werfest.vercel.app/auth/new-password?token=${token}`;
+  const resetEmail = render(await PasswordReset({resetLink, email}));
 
   await resend.emails.send({
     from: 'Acme <onboarding@resend.dev>',
     to: "jenyabasenko@gmail.com",
     subject: "Reset your password",
-    html: `<p>Click <a href="${resetLink}">here</a> to reset password.</p>`
+    html: resetEmail
   });
 };
 
@@ -40,7 +45,7 @@ export const sendVerificationEmail = async (
 ) =>{
   // const confirmLink = `${domain}/auth/new-verification?token=${token}`;
   const confirmLink = `https://werfest.vercel.app/auth/new-verification?token=${token}`;
-  const verificationEmail = render(VerificationEmail(confirmLink));
+  const verificationEmail = render(await VerificationEmail( {confirmLink, email}));
 
   await resend.emails.send({
     from: 'Acme <onboarding@resend.dev>',
