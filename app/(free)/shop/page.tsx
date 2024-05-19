@@ -5,8 +5,8 @@ const ShopPage = async () =>{
   return(
     <div className="relative top-16 flex flex-wrap">
       {card.map((card) =>(
-        <div className="min-w-[300px] min-h-[400px] mx-[10px] my-[10px] bg-white rounded-xl">
-          <img key={card.id} src={card.imageId} width={50} height={50}/>
+        <div key={card.id} className="min-w-[300px] min-h-[400px] mx-[10px] my-[10px] bg-white rounded-xl">
+          <img key={card.imageId} src={card.imageId} width={50} height={50}/>
         </div>
       ))}
     </div>
