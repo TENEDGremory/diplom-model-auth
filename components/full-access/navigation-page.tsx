@@ -20,16 +20,16 @@ const NavigationPage = () => {
       )
     }>
       {routesNavigation.map((route) => (
-        <Button
-          key={route.label}
-          variant="outline"
-          size="lg"
-          className="uppercase bg-zian-800 drop-shadow-md"
+        <Link href={route.href} key={route.href}>
+          <Button
+            
+            variant="outline"
+            size="lg"
+            className="uppercase bg-zian-800 drop-shadow-md"
           >
-          <Link href={route.href}>
             {route.label}
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       ))}
     </div>
   )
