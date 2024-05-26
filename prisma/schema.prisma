@@ -87,9 +87,19 @@ model CardProductStore{
   name String
   cardProductStoreImage CardProductStoreImage[]
   description String?
-  color String
+  cardCategories CardCategories[]
   size String
   price Int
+}
+
+model CardCategories{
+  id String @id @default(cuid())
+  cardId String
+  name String
+
+  cardProductStore CardProductStore @relation(fields: [cardId], references: [id])
+
+  @@unique([cardId])
 }
 
 model CardProductStoreImage{
