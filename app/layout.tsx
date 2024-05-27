@@ -22,17 +22,17 @@ export default async function RootLayout({
   const session = await auth();
   return (
     <SessionProvider session={session}>
-      <html lang="en" className="scroll-">
-        <body className={cn(
-          inter.className,
-        "bg-no-repeat bg-cover bg-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-600 to-indigo-900")}
-        >
+        <html lang="en" className="scroll-">
+          <body className={cn(
+            inter.className,
+            "bg-no-repeat bg-cover bg-center bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-600 to-indigo-900")}
+          >
 
-          <PublicHeader />
-          <Toaster />
-          {children}
-        </body>
-      </html>
+            <PublicHeader />
+            <Toaster />
+            {children}
+          </body>
+        </html>
     </SessionProvider>
   );
 }

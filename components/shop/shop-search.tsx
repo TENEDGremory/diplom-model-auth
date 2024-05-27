@@ -5,7 +5,7 @@ import { useState } from "react";
 
 
 
-export const Search = ({ storeCard }: { storeCard: Array<any> }) => {
+export const Search = ({ storeCard, children }: { storeCard: Array<any>, children: React.ReactNode }) => {
 
   const [search, setSearch] = useState("");
 
@@ -23,14 +23,17 @@ export const Search = ({ storeCard }: { storeCard: Array<any> }) => {
           }).map((item) => (
             <tr className="group/search-card flex items-center justify-between p-2 border-b-2 border-black bg-scroll" key={item.id}>
               <th className="w-[70px] h-[70px] overflow-hidden bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-600 to-indigo-900 border-2 border-black rounded-md" >
-                <Image src={item.imageId} alt={item.name} width={70} height={70} className="group-hover/search-card:scale-105 "/>
-                </th>
+                <Image src={item.imageId} alt={item.name} width={70} height={70} className="group-hover/search-card:scale-105 " />
+              </th>
               <th className="ml-2" >{item.name}</th>
               <th>{item.price} $</th>
             </tr>
           ))}
         </tbody>
       </table>
+      <div className="relative right-0">
+        {children}
+      </div>
     </div>
   )
 

@@ -16,7 +16,7 @@ import {
   SelectValue
 } from "@/components/ui/select";
 
-const ShopFilterBar = ({ storeCard }: { storeCard: Array<any> }) => {
+const ShopFilterBar = ({ storeCard, filterCard, optionsFilter }: { storeCard: Array<any>, filterCard: Array<any>, optionsFilter: Array<any> }) => {
 
   const form = useForm();
 
@@ -28,27 +28,36 @@ const ShopFilterBar = ({ storeCard }: { storeCard: Array<any> }) => {
             control={form.control}
             name="name"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Name</FormLabel>
-                <Select
-                  onValueChange={field.onChange}
-                  defaultValue={field.value}
-                >
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Name" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {storeCard.map((item) => (
-                      <SelectItem key={item.id} value={item.id}>
-                        {item.name}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-
-                </Select>
-              </FormItem>
+              <>
+                {filterCard.map((filter) => (
+                  <FormItem key={filter.id} >
+                    <FormLabel>{filter.name}</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
+                      <FormControl>
+                        <SelectTrigger>
+                          <SelectValue placeholder={filter.name} />
+                        </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                        {
+                          optionsFilter.map((option) => (
+                            <div key={option.id}>
+                              {filter.id === option.cardFiltersId ?
+                              <SelectItem value={option.id}>
+                                {option.label}
+                              </SelectItem>
+                              : "" }
+                            </div>
+                          ))
+                        }
+                      </SelectContent>
+                    </Select>
+                  </FormItem>
+                ))}
+              </>
             )}
           />
         </div>
@@ -58,3 +67,26 @@ const ShopFilterBar = ({ storeCard }: { storeCard: Array<any> }) => {
 }
 
 export default ShopFilterBar;
+
+
+// <FormItem>
+//   <FormLabel>Name</FormLabel>
+//   <Select
+//     onValueChange={field.onChange}
+//     defaultValue={field.value}
+//   >
+//     <FormControl>
+//       <SelectTrigger>
+//         <SelectValue placeholder="Name" />
+//       </SelectTrigger>
+//     </FormControl>
+//     <SelectContent>
+//       {storeCard.map((item) => (
+//         <SelectItem key={item.id} value={item.id}>
+//           {item.name}
+//         </SelectItem>
+//       ))}
+//     </SelectContent>
+
+//   </Select>
+// </FormItem>
