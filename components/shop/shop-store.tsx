@@ -10,32 +10,29 @@ import {
 } from "@/components/ui/card"
 
 import { Button } from "@/components/ui/button";
-
-import { ShopCardBasket } from "@/components/shop/shop-basket"
-
-
-
+import { createCartBasket } from "@/actions/cart-basket";
+import { useCurrentUser } from "@/hooks/use-current-user";
 
 const ShopStore = ({ storeCard }: { storeCard: Array<any> }) => {
 
-  
+  const user = useCurrentUser();
+
   return (
-    <div className="relative grid grid-cols-4 z-10 mx-auto">
+    <div className="relative grid grid-cols-4 z-10 mx-auto col-span-5 col-start-2">
       {storeCard.map((card) => (
-        <Card key={card.id} className="group/card w-[300px] m-2 p-4 shadow-md space-y-4">
-          <CardHeader className="w-[260px] overflow-hidden border-2 border-sky-200 rounded-lg bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-600 to-indigo-900 mx-auto shadow-lg">
-            <Image priority src={card.imageId} width={260} height={260} alt={card.name} className="object-cover h-[260px] rounded-sm transition duration-300 group-hover/card:scale-105" />
+        <Card key={card.id} className="w-[300px] m-2 shadow-md space-y-4 border-none">
+          <CardHeader className="w-full shadow-lg p-0">
+            <Image src={card.imageId} width={300} height={400} alt={card.name} className="object-cover h-[400px] rounded-t-md transition duration-300 " />
           </CardHeader>
-          <CardContent className="p-0">
-            {card.name} {card.price} $
+          <CardContent className="p-2 pt-0 flex justify-between">
+            <p>{card.name}</p>
+            <p>{card.price} $</p>
           </CardContent>
-          <CardFooter className="p-0">
-            <Button variant="default" size="sm" onClick={() => {ShopCardBasket.push({
-              id: card.id,
-              name: card.name,
-              imageId: card.imageId,
-              price: card.price
-            })} }>
+          <CardFooter className="p-2 pt-0">
+            <Button className="w-full " variant="default" size="sm"
+              onClick={() => {
+                createCartBasket({ name: card.name, imageId: card.imageId, price: card.price, userId: user?.id! });
+              }}>
               Add cart
             </Button>
           </CardFooter>

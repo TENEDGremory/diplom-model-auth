@@ -2,22 +2,18 @@
 import Image from "next/image";
 import { useState } from "react";
 
-
-
-
 export const Search = ({ storeCard, children }: { storeCard: Array<any>, children: React.ReactNode }) => {
-
   const [search, setSearch] = useState("");
 
   return (
-    <div className="relative max-h-[60px] w-full bg-white flex flex-col items-start justify-start px-4 pb-4 rounded-br-xl">
+    <div className="relative max-h-[60px] bg-white grid grid-cols-3 grid-rows-[60px_minmax(900px,_1fr)_100px] items-start px-4  rounded-br-xl col-span-5">
       <input
-        className="relative border-b-2 border-black w-[30%] p-2 pb-0 outline-none mt-3"
+        className="relative border-b-2 border-black p-2 pb-0 outline-none mt-3"
         placeholder="Search..."
         onChange={(e) => setSearch(e.target.value)}
       />
-      <table className="relative top-5 bg-white rounded-md z-50">
-        <tbody className="flex flex-col w-[400px] max-h-[500px] overflow-y-scroll">
+      <table className="relative top-5 bg-white rounded-md z-50 col-start-1">
+        <tbody className="flex flex-col  max-h-[500px] overflow-y-scroll">
           {storeCard.filter((item) => {
             return search.toLowerCase() === "" ? "" : item.name.toLowerCase().includes(search)
           }).map((item) => (
@@ -31,7 +27,7 @@ export const Search = ({ storeCard, children }: { storeCard: Array<any>, childre
           ))}
         </tbody>
       </table>
-      <div className="relative right-0">
+      <div className="relative right-0 col-start-3 row-start-1">
         {children}
       </div>
     </div>

@@ -63,3 +63,10 @@ export const RegisterSchema = z.object({
     message: "Name is required"
   })
 })
+
+export const CartSchema = z.object({
+  imageId: z.string(),
+  name: z.string(),
+  price: z.number(),
+  userId: z.string(),
+})

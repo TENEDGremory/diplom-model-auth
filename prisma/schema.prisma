@@ -115,3 +115,11 @@ model OptionsFilter {
   CardFilters   CardFilters? @relation(fields: [cardFiltersId], references: [id])
   cardFiltersId String?
 }
+
+model CartBasket {
+  id      String @id @default(cuid())
+  imageId String
+  name    String
+  price   Int
+  userId  String
+}
